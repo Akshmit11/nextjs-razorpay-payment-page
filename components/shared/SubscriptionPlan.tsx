@@ -10,6 +10,7 @@ const SubscriptionPlan = ({ userId }: { userId: string }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handlePayment = async () => {
+    setIsLoading(true);
     const res = await initializeRazorpay();
     if (!res) {
       alert("Razorpay SDK Failed to load");

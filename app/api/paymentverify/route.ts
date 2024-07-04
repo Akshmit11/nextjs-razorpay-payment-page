@@ -2,11 +2,6 @@ import Razorpay from "razorpay";
 import crypto from "crypto";
 import { NextResponse } from "next/server";
 
-const instance = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
-
 export async function POST(req: Request) {
   try {
     const {
@@ -25,7 +20,6 @@ export async function POST(req: Request) {
 
     if (isAuthentic) {
       // TODO: DB actions 
-
 
       return NextResponse.json({ message: "success" }, { status: 200 });
     } else {
